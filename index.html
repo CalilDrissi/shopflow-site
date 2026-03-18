@@ -11,7 +11,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238b5cf6' stroke-width='2.5'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg>" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <noscript><style>.reveal,.hero h1,.hero-sub,.hero-link,.hero-preview{opacity:1!important;transform:none!important;visibility:visible!important}</style></noscript>
+  <noscript><style>.reveal,.hero h1,.hero-sub,.hero-link,.hero-preview{opacity:1!important;transform:none!important;visibility:visible!important}.hero-flip-word{opacity:0!important}.hero-flip-word:first-child{opacity:1!important;position:relative!important;transform:none!important}</style></noscript>
   <style>.hero h1,.hero-sub,.hero-link,.hero-preview{opacity:1;transform:none;}</style>
 </head>
 <body>
@@ -44,7 +44,7 @@
   <div class="hero-sphere"></div>
   <div class="container" style="position:relative;z-index:1;">
     <div class="hero-text">
-      <h1>AUTOMATE YOUR<br><span class="hero-flip-wrapper"><span class="hero-flip-word active">ABANDONED CARTS</span><span class="hero-flip-word">PRODUCT SEO</span><span class="hero-flip-word">SOCIAL MEDIA</span><span class="hero-flip-word">ENTIRE STORE</span></span></h1>
+      <h1>AUTOMATE YOUR<br><span class="hero-flip-wrapper"><span class="hero-flip-word">ABANDONED CARTS</span><span class="hero-flip-word">PRODUCT SEO</span><span class="hero-flip-word">SOCIAL MEDIA</span><span class="hero-flip-word">ENTIRE STORE</span></span></h1>
       <div class="hero-text-row">
         <p class="hero-sub"><span class="hero-sub-accent">35 ready-made templates</span> or build your own from scratch. Connect your store, click run.</p>
         <a href="https://app.shopifyer.link" class="hero-link">Get started free <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -506,39 +506,47 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   const flipWords = document.querySelectorAll('.hero-flip-word');
   if (flipWords.length > 1) {
     let currentIndex = 0;
-    const flipInterval = 2.5; // seconds per word
+    let activeTL = null;
+    const flipDelay = 2.5; // seconds per word
 
-    // Set initial state — first word visible, rest hidden below
-    gsap.set(flipWords, { opacity: 0, y: '100%' });
+    // Set initial state — all hidden, first visible
+    gsap.set(flipWords, { position: 'absolute', opacity: 0, y: '100%' });
     gsap.set(flipWords[0], { opacity: 1, y: '0%' });
 
     function flipToNext() {
+      if (activeTL) activeTL.kill();
+
       const current = flipWords[currentIndex];
       const nextIndex = (currentIndex + 1) % flipWords.length;
       const next = flipWords[nextIndex];
 
-      const tl = gsap.timeline();
-      // Current word slides up and fades
-      tl.to(current, {
-        y: '-100%', opacity: 0, duration: 0.5, ease: 'power3.in',
-        onComplete: () => { current.classList.remove('active'); }
+      activeTL = gsap.timeline();
+      activeTL.to(current, {
+        y: '-100%', opacity: 0, duration: 0.45, ease: 'power3.in'
       });
-      // Next word slides in from below
-      tl.fromTo(next,
+      activeTL.fromTo(next,
         { y: '100%', opacity: 0 },
-        { y: '0%', opacity: 1, duration: 0.5, ease: 'power3.out',
-          onStart: () => { next.classList.add('active'); }
-        },
-        '-=0.15'
+        { y: '0%', opacity: 1, duration: 0.45, ease: 'power3.out' },
+        '-=0.1'
       );
 
       currentIndex = nextIndex;
     }
 
-    // Start flipping after initial hero animation settles
+    // Start flipping after hero entrance animation
+    let flipIntervalId = null;
     gsap.delayedCall(2, () => {
-      flipToNext(); // first flip
-      setInterval(flipToNext, flipInterval * 1000);
+      flipToNext();
+      flipIntervalId = setInterval(flipToNext, flipDelay * 1000);
+    });
+
+    // Pause when tab hidden, resume when visible
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        if (flipIntervalId) { clearInterval(flipIntervalId); flipIntervalId = null; }
+      } else {
+        if (!flipIntervalId) { flipIntervalId = setInterval(flipToNext, flipDelay * 1000); }
+      }
     });
   }
 

@@ -299,7 +299,9 @@ h3 { font-size: 1.25rem; font-weight: 700; }
   position: relative;
   vertical-align: top;
   overflow: hidden;
-  height: 1.15em;
+  height: 1.2em;
+  /* Width set by widest word — "ABANDONED CARTS" */
+  min-width: 8ch;
 }
 
 .hero-flip-word {
@@ -314,13 +316,19 @@ h3 { font-size: 1.25rem; font-weight: 700; }
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  -webkit-text-stroke: 0px;
 }
 
-.hero-flip-word.active {
-  position: relative;
+/* First word visible before JS loads */
+.hero-flip-word:first-child {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .hero-flip-wrapper {
+    display: block;
+    max-width: 100%;
+  }
 }
 
 .hero-text-row {
