@@ -7,7 +7,7 @@
   <meta name="description" content="Build powerful Shopify automations with drag-and-drop workflows. SEO, inventory, pricing, fulfillment — no code required." />
   <link rel="canonical" href="https://shopifyer.link/" />
   <meta name="robots" content="index, follow" />
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=11" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238b5cf6' stroke-width='2.5'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg>" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -87,57 +87,7 @@
           </div>
           <!-- Editor Layout: Palette + Canvas -->
           <div class="editor-layout">
-            <div class="editor-palette">
-              <div class="palette-search-wrap">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                <input type="text" class="palette-search" placeholder="Search nodes..." readonly />
-              </div>
-              <div class="palette-category">
-                <div class="palette-cat-header" data-color="#ff6b6b">
-                  <span class="palette-cat-dot" style="background:#ff6b6b;"></span>
-                  Triggers
-                </div>
-                <div class="palette-node" data-node-type="trigger_manual"><span class="pn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg></span> Manual Trigger</div>
-                <div class="palette-node" data-node-type="trigger_schedule"><span class="pn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span> Schedule</div>
-                <div class="palette-node" data-node-type="trigger_webhook"><span class="pn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span> Webhook</div>
-              </div>
-              <div class="palette-category">
-                <div class="palette-cat-header">
-                  <span class="palette-cat-dot" style="background:#96bf48;"></span>
-                  Shopify
-                </div>
-                <div class="palette-node" data-node-type="shopify_get_products"><span class="pn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#96bf48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16.5 9.4-9-5.19"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" x2="12" y1="22.08" y2="12"/></svg></span> Get Products</div>
-                <div class="palette-node" data-node-type="shopify_update_product"><span class="pn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#96bf48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></span> Update Product</div>
-                <div class="palette-node" data-node-type="shopify_get_products"><span class="pn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#96bf48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/></svg></span> Orders</div>
-                <div class="palette-node" data-node-type="shopify_get_products"><span class="pn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#96bf48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span> Customers</div>
-              </div>
-              <div class="palette-category">
-                <div class="palette-cat-header">
-                  <span class="palette-cat-dot" style="background:#a855f7;"></span>
-                  AI
-                </div>
-                <div class="palette-node" data-node-type="ai_generate_text"><span class="pn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></span> Generate Text</div>
-                <div class="palette-node" data-node-type="ai_rewrite"><span class="pn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span> Translate</div>
-              </div>
-              <div class="palette-category">
-                <div class="palette-cat-header">
-                  <span class="palette-cat-dot" style="background:#3b82f6;"></span>
-                  Logic
-                </div>
-                <div class="palette-node" data-node-type="logic_filter"><span class="pn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></span> Filter</div>
-                <div class="palette-node" data-node-type="logic_if"><span class="pn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></span> Branch</div>
-                <div class="palette-node" data-node-type="logic_limit"><span class="pn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/></svg></span> Loop</div>
-              </div>
-              <div class="palette-category">
-                <div class="palette-cat-header">
-                  <span class="palette-cat-dot" style="background:#10b981;"></span>
-                  Output
-                </div>
-                <div class="palette-node" data-node-type="output_webhook"><span class="pn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span> Webhook Call</div>
-                <div class="palette-node" data-node-type="output_notification"><span class="pn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span> Send Email</div>
-                <div class="palette-node" data-node-type="output_log"><span class="pn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg></span> CSV Export</div>
-              </div>
-            </div>
+            <div id="node-palette" class="editor-palette"></div>
             <canvas id="editor-canvas" style="flex:1;width:100%;display:block;min-height:0;"></canvas>
           </div>
         </div>
