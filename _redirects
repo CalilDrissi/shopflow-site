@@ -1,0 +1,2 @@
+# Redirect www to root domain
+https://www.shopifyer.link/* https://shopifyer.link/:splat 301

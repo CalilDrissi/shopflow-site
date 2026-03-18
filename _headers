@@ -1,0 +1,7 @@
+# Block search engines from indexing preview/branch deployments
+# Only the custom domain (shopifyer.link) should be indexed
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://*.shopflow-site.pages.dev/*
+  X-Robots-Tag: noindex
