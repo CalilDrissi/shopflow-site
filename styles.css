@@ -645,6 +645,12 @@ h3 { font-size: 1.25rem; }
   .bento-row.reverse { direction: ltr; }
 }
 
+/* --- Mission --- */
+.mission .section-header p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
 /* --- Integration Logos --- */
 .logo-row {
   display: flex;
