@@ -295,13 +295,11 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 
 /* --- Hero Word Flip --- */
 .hero-flip-wrapper {
-  display: inline-block;
+  display: block;
   position: relative;
-  vertical-align: top;
   overflow: hidden;
   height: 1.2em;
-  /* Width set by widest word — "ABANDONED CARTS" */
-  min-width: 8ch;
+  width: 100%;
 }
 
 .hero-flip-word {
