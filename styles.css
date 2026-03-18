@@ -881,10 +881,6 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 }
 
 /* --- Mission --- */
-.mission .section-header h2 {
-  font-family: var(--font-display);
-}
-
 .mission-lead {
   font-size: 1.15rem !important;
   line-height: 1.8 !important;
@@ -892,41 +888,45 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 
 .mission-compare {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 24px;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
   margin-bottom: 64px;
 }
 
 .mission-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  padding: 32px;
+  background: var(--bg);
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 .mission-card-before {
-  border-color: rgba(248,113,113,0.2);
+  background: var(--bg);
 }
 
 .mission-card-after {
-  border-color: rgba(139,92,246,0.25);
-  box-shadow: 0 0 40px rgba(139,92,246,0.06);
+  background: var(--bg-raised);
+}
+
+.mission-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .mission-card-tag {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--text-tertiary);
-  padding: 4px 12px;
-  background: rgba(255,255,255,0.04);
+  padding: 5px 12px;
+  background: rgba(255,255,255,0.05);
   border-radius: var(--radius-full);
-  width: fit-content;
 }
 
 .mission-card-tag-accent {
@@ -934,18 +934,29 @@ h3 { font-size: 1.25rem; font-weight: 700; }
   background: var(--accent-dim);
 }
 
+.mission-card-subtitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+}
+
 .mission-card-items {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+  flex: 1;
 }
 
 .mission-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-size: 14px;
   font-weight: 500;
+}
+
+.mission-item span:first-of-type {
+  flex: 1;
 }
 
 .mission-item-bad {
@@ -953,20 +964,21 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 }
 
 .mission-item-bad svg {
-  color: #f87171;
+  color: rgba(248,113,113,0.5);
   flex-shrink: 0;
 }
 
 .mission-price {
-  margin-left: auto;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-tertiary);
   font-variant-numeric: tabular-nums;
+  text-align: right;
+  min-width: 56px;
 }
 
 .mission-item-good {
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .mission-item-good svg {
@@ -978,48 +990,37 @@ h3 { font-size: 1.25rem; font-weight: 700; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 16px;
+  padding-top: 20px;
   border-top: 1px solid var(--border);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-tertiary);
 }
 
 .mission-total-bad {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
   font-family: var(--font-display);
   color: #f87171;
   text-decoration: line-through;
+  text-decoration-color: rgba(248,113,113,0.4);
   text-decoration-thickness: 2px;
 }
 
 .mission-total-good {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
   font-family: var(--font-display);
   color: #34d399;
 }
 
-.mission-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--accent-dim);
-  border: 1px solid rgba(139,92,246,0.2);
-  flex-shrink: 0;
-}
-
 .mission-statement {
   text-align: center;
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-  font-weight: 600;
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  font-weight: 500;
   color: var(--text-secondary);
   line-height: 1.7;
-  max-width: 700px;
+  max-width: 680px;
   margin: 0 auto;
   letter-spacing: -0.01em;
 }
@@ -1027,11 +1028,6 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 @media (max-width: 768px) {
   .mission-compare {
     grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .mission-arrow {
-    transform: rotate(90deg);
-    margin: 0 auto;
   }
 }
 
