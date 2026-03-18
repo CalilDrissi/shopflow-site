@@ -2,7 +2,7 @@
    ShopFlow — Linear-inspired dark minimal
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@700&display=swap');
 
 :root {
   --bg: #000000;
@@ -282,12 +282,14 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 .hero h1 {
   position: relative;
   margin-bottom: 24px;
-  max-width: 900px;
-  font-size: clamp(2.8rem, 6.5vw, 4.8rem);
-  letter-spacing: 0.02em;
-  line-height: 1.1;
-  font-weight: 900;
+  max-width: 960px;
+  font-family: 'Space Grotesk', var(--font);
+  font-size: clamp(3.2rem, 8vw, 5.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  font-weight: 700;
   text-transform: uppercase;
+  -webkit-text-stroke: 0.5px currentColor;
 }
 
 /* --- Hero Word Flip --- */
@@ -311,6 +313,7 @@ h3 { font-size: 1.25rem; font-weight: 700; }
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-stroke: 0px;
 }
 
 .hero-flip-word.active {
