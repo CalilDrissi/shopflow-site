@@ -210,6 +210,7 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
+  .nav-cta { padding: 6px 12px; font-size: 13px; }
   .nav-links.open {
     display: flex;
     flex-direction: column;
@@ -330,6 +331,10 @@ h3 { font-size: 1.25rem; font-weight: 700; }
   .hero-flip-wrapper {
     display: block;
     max-width: 100%;
+    overflow: visible;
+  }
+  .hero-flip-word {
+    font-size: clamp(2rem, 8vw, 3.2rem);
   }
 }
 
@@ -634,7 +639,7 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 }
 
 @media (max-width: 768px) {
-  .feature-grid { grid-template-columns: 1fr; }
+  .feature-grid { grid-template-columns: 1fr !important; }
 }
 
 /* --- Bento Feature Rows --- */
@@ -708,8 +713,9 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 }
 
 @media (max-width: 768px) {
-  .bento-row { grid-template-columns: 1fr; gap: 32px; }
+  .bento-row { grid-template-columns: 1fr; gap: 24px; padding: 48px 0; }
   .bento-row.reverse { direction: ltr; }
+  .bento-visual { min-height: 240px; padding: 28px; }
 }
 
 /* --- Bento Charts --- */
@@ -1006,29 +1012,36 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 }
 
 @media (max-width: 768px) {
-  .mission-table-header,
-  .mission-table-row {
-    grid-template-columns: 1fr;
-  }
-  .mission-table-col-label:first-child {
+  .mission-table-header {
     display: none;
   }
-  .mission-table-col-label {
-    border-left: none;
+  .mission-table-row {
+    grid-template-columns: 1fr;
+    padding: 8px 0;
+  }
+  .mission-table-label {
+    padding: 14px 20px 6px;
   }
   .mission-table-cell {
     border-left: none;
-    padding: 12px 24px;
+    padding: 8px 20px;
+    font-size: 13px;
   }
   .mission-cell-bad::before {
-    content: 'Before: ';
+    content: 'Before:  ';
     color: var(--text-tertiary);
     font-weight: 600;
   }
   .mission-cell-good::before {
-    content: 'After: ';
+    content: 'After:  ';
     color: var(--accent-light);
     font-weight: 600;
+  }
+  .mission-table-cell {
+    display: block;
+  }
+  .mission-table-row-total .mission-table-cell {
+    padding: 12px 20px;
   }
 }
 
