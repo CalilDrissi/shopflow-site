@@ -150,14 +150,14 @@
     };
   }
 
-  // --- Constants (match real app) ---
-  var NODE_W = 220;
-  var NODE_H = 52;
-  var PORT_R = 5;
-  var PORT_R_HOVER = 7;
+  // --- Constants ---
+  var NODE_W = 160;
+  var NODE_H = 38;
+  var PORT_R = 4;
+  var PORT_R_HOVER = 6;
   var GRID_SIZE = 20;
-  var ACCENT_W = 4;
-  var CORNER_R = 8;
+  var ACCENT_W = 3;
+  var CORNER_R = 7;
 
   // --- Canvas Colors (dark theme for marketing site) ---
   var canvasColors = {
@@ -542,24 +542,24 @@
     ctx.restore();
 
     // Icon circle
-    var iconCX = x + ACCENT_W + 14 + 14;
+    var iconCX = x + ACCENT_W + 10 + 11;
     var iconCY = y + h / 2;
     ctx.fillStyle = hexToRgba(color, 0.15);
     ctx.beginPath();
-    ctx.arc(iconCX, iconCY, 14, 0, Math.PI * 2);
+    ctx.arc(iconCX, iconCY, 11, 0, Math.PI * 2);
     ctx.fill();
 
     // Icon image
-    var iconImg = getIconImage(reg.icon, color, 16);
+    var iconImg = getIconImage(reg.icon, color, 13);
     if (iconImg && iconImg.complete && iconImg.naturalWidth > 0) {
-      ctx.drawImage(iconImg, iconCX - 8, iconCY - 8, 16, 16);
+      ctx.drawImage(iconImg, iconCX - 6.5, iconCY - 6.5, 13, 13);
     }
 
     // Label
-    var textX = iconCX + 22;
-    var maxTextW = w - (textX - x) - 10;
+    var textX = iconCX + 16;
+    var maxTextW = w - (textX - x) - 8;
     ctx.fillStyle = canvasColors.text;
-    ctx.font = '500 13px "Inter Tight", -apple-system, BlinkMacSystemFont, sans-serif';
+    ctx.font = '500 11px "Inter Tight", -apple-system, BlinkMacSystemFont, sans-serif';
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'left';
     ctx.fillText(node.label || reg.label, textX, iconCY, maxTextW);
@@ -1093,22 +1093,65 @@
     }
   }
 
-  // --- Demo Workflow ---
+  // --- Demo Workflow: Social Media Auto-Post ---
   var DEMO_WORKFLOW = {
     id: 'demo',
-    name: 'SEO Description Fixer',
+    name: 'Social Media Auto-Post',
     nodes: [
-      { id: 'n1', node_type: 'trigger_manual', label: 'Manual Start', position_x: 60, position_y: 160, config: {} },
-      { id: 'n2', node_type: 'shopify_get_products', label: 'Get Products', position_x: 340, position_y: 160, config: {} },
-      { id: 'n3', node_type: 'logic_filter', label: 'Filter Empty', position_x: 620, position_y: 160, config: {} },
-      { id: 'n4', node_type: 'ai_generate_text', label: 'AI Rewrite', position_x: 620, position_y: 280, config: {} },
-      { id: 'n5', node_type: 'shopify_update_product', label: 'Update Product', position_x: 340, position_y: 280, config: {} },
+      // Row 1: Trigger + Fetch
+      { id: 'n1',  node_type: 'trigger_schedule', label: 'Daily 9 AM',        position_x: 40,  position_y: 80,  config: {} },
+      { id: 'n2',  node_type: 'shopify_get_products', label: 'New Products',  position_x: 240, position_y: 80,  config: {} },
+      { id: 'n3',  node_type: 'logic_filter',     label: 'Active Only',       position_x: 440, position_y: 80,  config: {} },
+      { id: 'n4',  node_type: 'logic_limit',      label: 'Top 5',             position_x: 640, position_y: 80,  config: {} },
+
+      // Row 2: AI content generation
+      { id: 'n5',  node_type: 'ai_generate_text', label: 'Write Caption',     position_x: 440, position_y: 180, config: {} },
+      { id: 'n6',  node_type: 'ai_summarize',     label: 'Short Hook',        position_x: 640, position_y: 180, config: {} },
+      { id: 'n7',  node_type: 'data_template',    label: 'Format Post',       position_x: 840, position_y: 180, config: {} },
+
+      // Row 3: Branch to platforms
+      { id: 'n8',  node_type: 'logic_if',         label: 'Has Images?',       position_x: 640, position_y: 290, config: {} },
+
+      // Row 4: Platform outputs (fan out)
+      { id: 'n9',  node_type: 'output_webhook',   label: 'Instagram',         position_x: 240, position_y: 390, config: {} },
+      { id: 'n10', node_type: 'output_webhook',   label: 'Facebook',          position_x: 440, position_y: 390, config: {} },
+      { id: 'n11', node_type: 'output_webhook',   label: 'TikTok',            position_x: 640, position_y: 390, config: {} },
+      { id: 'n12', node_type: 'output_webhook',   label: 'X / Twitter',       position_x: 840, position_y: 390, config: {} },
+      { id: 'n13', node_type: 'output_webhook',   label: 'LinkedIn',          position_x: 1040,position_y: 390, config: {} },
+
+      // Row 5: Merge + Log + Tag
+      { id: 'n14', node_type: 'logic_delay',      label: 'Wait 30s',          position_x: 640, position_y: 490, config: {} },
+      { id: 'n15', node_type: 'shopify_tag_resource', label: 'Tag "Posted"',  position_x: 840, position_y: 490, config: {} },
+      { id: 'n16', node_type: 'output_log',       label: 'Audit Log',         position_x: 1040,position_y: 490, config: {} },
+
+      // Side branch: translate
+      { id: 'n17', node_type: 'ai_translate',     label: 'Spanish',           position_x: 240, position_y: 490, config: {} },
+      { id: 'n18', node_type: 'output_webhook',   label: 'ES Instagram',      position_x: 40,  position_y: 490, config: {} },
     ],
     connections: [
-      { id: 'c1', from_node: 'n1', from_port: 'output', to_node: 'n2', to_port: 'input' },
-      { id: 'c2', from_node: 'n2', from_port: 'output', to_node: 'n3', to_port: 'input' },
-      { id: 'c3', from_node: 'n3', from_port: 'output', to_node: 'n4', to_port: 'input' },
-      { id: 'c4', from_node: 'n4', from_port: 'output', to_node: 'n5', to_port: 'input' },
+      // Main pipeline
+      { id: 'c1',  from_node: 'n1',  from_port: 'output', to_node: 'n2',  to_port: 'input' },
+      { id: 'c2',  from_node: 'n2',  from_port: 'output', to_node: 'n3',  to_port: 'input' },
+      { id: 'c3',  from_node: 'n3',  from_port: 'output', to_node: 'n4',  to_port: 'input' },
+      { id: 'c4',  from_node: 'n4',  from_port: 'output', to_node: 'n5',  to_port: 'input' },
+      // AI chain
+      { id: 'c5',  from_node: 'n5',  from_port: 'output', to_node: 'n6',  to_port: 'input' },
+      { id: 'c6',  from_node: 'n6',  from_port: 'output', to_node: 'n7',  to_port: 'input' },
+      // Branch
+      { id: 'c7',  from_node: 'n7',  from_port: 'output', to_node: 'n8',  to_port: 'input' },
+      // Fan out to platforms (true = has images)
+      { id: 'c8',  from_node: 'n8',  from_port: 'true',  to_node: 'n9',  to_port: 'input' },
+      { id: 'c9',  from_node: 'n8',  from_port: 'true',  to_node: 'n10', to_port: 'input' },
+      { id: 'c10', from_node: 'n8',  from_port: 'true',  to_node: 'n11', to_port: 'input' },
+      { id: 'c11', from_node: 'n8',  from_port: 'false', to_node: 'n12', to_port: 'input' },
+      { id: 'c12', from_node: 'n8',  from_port: 'false', to_node: 'n13', to_port: 'input' },
+      // Post-publish: delay → tag → log
+      { id: 'c13', from_node: 'n11', from_port: 'output', to_node: 'n14', to_port: 'input' },
+      { id: 'c14', from_node: 'n14', from_port: 'output', to_node: 'n15', to_port: 'input' },
+      { id: 'c15', from_node: 'n15', from_port: 'output', to_node: 'n16', to_port: 'input' },
+      // Translate branch
+      { id: 'c16', from_node: 'n9',  from_port: 'output', to_node: 'n17', to_port: 'input' },
+      { id: 'c17', from_node: 'n17', from_port: 'output', to_node: 'n18', to_port: 'input' },
     ],
   };
 
