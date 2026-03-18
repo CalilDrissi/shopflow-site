@@ -44,9 +44,9 @@
   <div class="hero-sphere"></div>
   <div class="container" style="position:relative;z-index:1;">
     <div class="hero-text">
-      <h1>The visual automation<br>system for Shopify stores</h1>
+      <h1>AUTOMATE YOUR<br><span class="hero-flip-wrapper"><span class="hero-flip-word active">ABANDONED CARTS</span><span class="hero-flip-word">PRODUCT SEO</span><span class="hero-flip-word">SOCIAL MEDIA</span><span class="hero-flip-word">ENTIRE STORE</span></span></h1>
       <div class="hero-text-row">
-        <p class="hero-sub">Purpose-built for store owners and operators. Designed for the AI era.</p>
+        <p class="hero-sub">One platform. <span class="hero-sub-accent">35 templates.</span> Pick one, connect your Shopify store, click run. That's it.</p>
         <a href="https://app.shopifyer.link" class="hero-link">Get started free <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
@@ -362,6 +362,46 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.set(heroPreview, { y: 40, opacity: 0 });
       heroTL.to(heroPreview, { y: 0, opacity: 1, duration: 0.9, ease: 'power2.out' }, '-=0.2');
     }
+  }
+
+  // Hero word flip
+  const flipWords = document.querySelectorAll('.hero-flip-word');
+  if (flipWords.length > 1) {
+    let currentIndex = 0;
+    const flipInterval = 2.5; // seconds per word
+
+    // Set initial state — first word visible, rest hidden below
+    gsap.set(flipWords, { opacity: 0, y: '100%' });
+    gsap.set(flipWords[0], { opacity: 1, y: '0%' });
+
+    function flipToNext() {
+      const current = flipWords[currentIndex];
+      const nextIndex = (currentIndex + 1) % flipWords.length;
+      const next = flipWords[nextIndex];
+
+      const tl = gsap.timeline();
+      // Current word slides up and fades
+      tl.to(current, {
+        y: '-100%', opacity: 0, duration: 0.5, ease: 'power3.in',
+        onComplete: () => { current.classList.remove('active'); }
+      });
+      // Next word slides in from below
+      tl.fromTo(next,
+        { y: '100%', opacity: 0 },
+        { y: '0%', opacity: 1, duration: 0.5, ease: 'power3.out',
+          onStart: () => { next.classList.add('active'); }
+        },
+        '-=0.15'
+      );
+
+      currentIndex = nextIndex;
+    }
+
+    // Start flipping after initial hero animation settles
+    gsap.delayedCall(2, () => {
+      flipToNext(); // first flip
+      setInterval(flipToNext, flipInterval * 1000);
+    });
   }
 
   // Scroll reveals
