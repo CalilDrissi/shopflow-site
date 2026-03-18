@@ -700,6 +700,174 @@ h3 { font-size: 1.25rem; font-weight: 700; }
   .bento-row.reverse { direction: ltr; }
 }
 
+/* --- Bento Charts --- */
+.chart-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chart-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+}
+
+.chart-footnote {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+/* Horizontal bar chart (Cart Recovery) */
+.chart-bar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chart-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chart-bar-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  width: 52px;
+  flex-shrink: 0;
+}
+
+.chart-bar-track {
+  flex: 1;
+  height: 32px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.chart-bar-fill {
+  height: 100%;
+  width: var(--bar-width);
+  background: var(--accent-gradient);
+  border-radius: 6px;
+  position: relative;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.chart-bar-fill::after {
+  content: attr(data-value);
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* Line chart (SEO) */
+.chart-line-wrapper {
+  position: relative;
+}
+
+.chart-line-svg {
+  width: 100%;
+  height: 120px;
+  display: block;
+}
+
+.chart-line-anim {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+}
+
+.chart-area-anim {
+  opacity: 0;
+}
+
+.chart-dot-anim {
+  opacity: 0;
+}
+
+.chart-line-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.chart-line-labels span {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.chart-line-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--accent-dim);
+  color: var(--accent-light);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  opacity: 0;
+}
+
+/* Vertical bar chart (Social Media) */
+.chart-bar-vertical {
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 10px;
+  height: 160px;
+}
+
+.chart-vbar-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.chart-vbar-fill {
+  width: 100%;
+  height: var(--bar-height);
+  background: var(--accent-gradient);
+  border-radius: 6px 6px 4px 4px;
+  position: relative;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 8px;
+  min-height: 0;
+}
+
+.chart-vbar-val {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.chart-vbar-label {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
 /* --- Mission --- */
 .mission .section-header p {
   font-size: 1.1rem;

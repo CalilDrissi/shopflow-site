@@ -145,10 +145,27 @@
         </ul>
       </div>
       <div class="bento-visual">
-        <div style="text-align:center;">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.5" style="margin:0 auto 16px;opacity:0.6"><circle cx="10" cy="20.5" r="1"/><circle cx="18" cy="20.5" r="1"/><path d="M2.5 2.5h3l2.7 12.4a2 2 0 002 1.6h7.7a2 2 0 002-1.6l1.6-8.4H7.1"/><path d="M16 9l-3 3 3 3" opacity="0.5"/><path d="M20 12H13" opacity="0.5"/></svg>
-          <div style="font-weight:600;font-size:16px;margin-bottom:6px;">Cart Recovery</div>
-          <div style="color:var(--text-tertiary);font-size:13px;">Automated follow-ups that bring buyers back</div>
+        <div class="chart-container">
+          <div class="chart-title">Recovered Revenue</div>
+          <div class="chart-bar-group">
+            <div class="chart-bar-row">
+              <span class="chart-bar-label">Week 1</span>
+              <div class="chart-bar-track"><div class="chart-bar-fill chart-anim" style="--bar-width:25%;" data-value="$1.2K"></div></div>
+            </div>
+            <div class="chart-bar-row">
+              <span class="chart-bar-label">Week 2</span>
+              <div class="chart-bar-track"><div class="chart-bar-fill chart-anim" style="--bar-width:48%;" data-value="$3.4K"></div></div>
+            </div>
+            <div class="chart-bar-row">
+              <span class="chart-bar-label">Week 3</span>
+              <div class="chart-bar-track"><div class="chart-bar-fill chart-anim" style="--bar-width:72%;" data-value="$7.1K"></div></div>
+            </div>
+            <div class="chart-bar-row">
+              <span class="chart-bar-label">Week 4</span>
+              <div class="chart-bar-track"><div class="chart-bar-fill chart-anim" style="--bar-width:100%;" data-value="$12K"></div></div>
+            </div>
+          </div>
+          <div class="chart-footnote">Average store — first month with ShopFlow</div>
         </div>
       </div>
     </div>
@@ -164,10 +181,36 @@
         </ul>
       </div>
       <div class="bento-visual">
-        <div style="text-align:center;">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.5" style="margin:0 auto 16px;opacity:0.6"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M8 11h6" opacity="0.5"/><path d="M11 8v6" opacity="0.5"/></svg>
-          <div style="font-weight:600;font-size:16px;margin-bottom:6px;">SEO Engine</div>
-          <div style="color:var(--text-tertiary);font-size:13px;">Descriptions &bull; Meta Tags &bull; Alt Text &bull; Translations</div>
+        <div class="chart-container">
+          <div class="chart-title">Organic Traffic Growth</div>
+          <div class="chart-line-wrapper">
+            <svg class="chart-line-svg" viewBox="0 0 280 120" preserveAspectRatio="none">
+              <!-- Grid lines -->
+              <line x1="0" y1="30" x2="280" y2="30" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <line x1="0" y1="60" x2="280" y2="60" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <line x1="0" y1="90" x2="280" y2="90" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <!-- Area fill -->
+              <path d="M0,105 L47,100 L93,92 L140,78 L187,55 L233,35 L280,12 L280,120 L0,120 Z" fill="url(#seoGrad)" class="chart-area-anim"/>
+              <!-- Line -->
+              <polyline points="0,105 47,100 93,92 140,78 187,55 233,35 280,12" fill="none" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="chart-line-anim"/>
+              <!-- Dots -->
+              <circle cx="0" cy="105" r="3" fill="#8b5cf6" class="chart-dot-anim"/>
+              <circle cx="93" cy="92" r="3" fill="#8b5cf6" class="chart-dot-anim"/>
+              <circle cx="187" cy="55" r="3" fill="#8b5cf6" class="chart-dot-anim"/>
+              <circle cx="280" cy="12" r="4.5" fill="#8b5cf6" stroke="#000" stroke-width="2" class="chart-dot-anim"/>
+              <defs>
+                <linearGradient id="seoGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="rgba(139,92,246,0.25)"/>
+                  <stop offset="100%" stop-color="rgba(139,92,246,0)"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="chart-line-labels">
+              <span>Month 1</span><span>Month 2</span><span>Month 3</span><span>Month 4</span><span>Month 5</span><span>Month 6</span>
+            </div>
+            <div class="chart-line-badge">+340%</div>
+          </div>
+          <div class="chart-footnote">Organic sessions after running SEO Optimizer</div>
         </div>
       </div>
     </div>
@@ -183,10 +226,31 @@
         </ul>
       </div>
       <div class="bento-visual">
-        <div style="text-align:center;">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.5" style="margin:0 auto 16px;opacity:0.6"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2L11 13"/></svg>
-          <div style="font-weight:600;font-size:16px;margin-bottom:6px;">Social Autopilot</div>
-          <div style="color:var(--text-tertiary);font-size:13px;">Instagram &bull; Facebook &bull; TikTok &bull; X &bull; LinkedIn</div>
+        <div class="chart-container">
+          <div class="chart-title">Daily Posts — Automated</div>
+          <div class="chart-bar-group chart-bar-vertical">
+            <div class="chart-vbar-col">
+              <div class="chart-vbar-fill chart-anim" style="--bar-height:90%;"><span class="chart-vbar-val">8</span></div>
+              <span class="chart-vbar-label">IG</span>
+            </div>
+            <div class="chart-vbar-col">
+              <div class="chart-vbar-fill chart-anim" style="--bar-height:75%;"><span class="chart-vbar-val">6</span></div>
+              <span class="chart-vbar-label">FB</span>
+            </div>
+            <div class="chart-vbar-col">
+              <div class="chart-vbar-fill chart-anim" style="--bar-height:100%;"><span class="chart-vbar-val">10</span></div>
+              <span class="chart-vbar-label">TikTok</span>
+            </div>
+            <div class="chart-vbar-col">
+              <div class="chart-vbar-fill chart-anim" style="--bar-height:60%;"><span class="chart-vbar-val">5</span></div>
+              <span class="chart-vbar-label">X</span>
+            </div>
+            <div class="chart-vbar-col">
+              <div class="chart-vbar-fill chart-anim" style="--bar-height:40%;"><span class="chart-vbar-val">3</span></div>
+              <span class="chart-vbar-label">LinkedIn</span>
+            </div>
+          </div>
+          <div class="chart-footnote">32 posts/day &middot; 0 hours of work</div>
         </div>
       </div>
     </div>
@@ -428,6 +492,52 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         onEnter: () => {
           gsap.to(text, { x: 0, opacity: 1, duration: 0.7, ease: 'power2.out' });
           gsap.to(visual, { x: 0, opacity: 1, duration: 0.7, ease: 'power2.out', delay: 0.1 });
+        }
+      });
+    }
+  });
+
+  // Chart animations
+  document.querySelectorAll('.bento-visual').forEach(visual => {
+    // Horizontal bars
+    const hBars = visual.querySelectorAll('.chart-bar-fill.chart-anim');
+    if (hBars.length) {
+      ScrollTrigger.create({
+        trigger: visual,
+        start: 'top 80%',
+        once: true,
+        onEnter: () => {
+          gsap.to(hBars, { scaleX: 1, duration: 0.8, ease: 'power2.out', stagger: 0.12 });
+        }
+      });
+    }
+    // Vertical bars
+    const vBars = visual.querySelectorAll('.chart-vbar-fill.chart-anim');
+    if (vBars.length) {
+      ScrollTrigger.create({
+        trigger: visual,
+        start: 'top 80%',
+        once: true,
+        onEnter: () => {
+          gsap.to(vBars, { scaleY: 1, duration: 0.7, ease: 'back.out(1.4)', stagger: 0.08 });
+        }
+      });
+    }
+    // Line chart
+    const line = visual.querySelector('.chart-line-anim');
+    const area = visual.querySelector('.chart-area-anim');
+    const dots = visual.querySelectorAll('.chart-dot-anim');
+    const badge = visual.querySelector('.chart-line-badge');
+    if (line) {
+      ScrollTrigger.create({
+        trigger: visual,
+        start: 'top 80%',
+        once: true,
+        onEnter: () => {
+          gsap.to(line, { strokeDashoffset: 0, duration: 1.5, ease: 'power2.out' });
+          if (area) gsap.to(area, { opacity: 1, duration: 0.8, delay: 0.5 });
+          if (dots.length) gsap.to(dots, { opacity: 1, duration: 0.3, stagger: 0.15, delay: 0.3 });
+          if (badge) gsap.to(badge, { opacity: 1, duration: 0.4, delay: 1.2 });
         }
       });
     }
