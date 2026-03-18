@@ -377,13 +377,10 @@ h3 { font-size: 1.25rem; }
 }
 
 .preview-body {
-  padding: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  min-height: 280px;
+  padding: 0;
+  position: relative;
+  min-height: 380px;
+  overflow: hidden;
 }
 
 .wf-node {
@@ -861,5 +858,180 @@ h3 { font-size: 1.25rem; }
   background: var(--text-tertiary);
   justify-self: center;
   align-self: center;
+}
+
+/* --- Interactive Workflow Editor --- */
+.wf-canvas {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  cursor: default;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.wf-canvas-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.wf-editor-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: grab;
+  user-select: none;
+  z-index: 2;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  touch-action: none;
+  white-space: nowrap;
+}
+
+.wf-editor-node:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.wf-editor-node.dragging {
+  cursor: grabbing;
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(139,92,246,0.15);
+  z-index: 10;
+  transition: none;
+}
+
+.wf-node-delete {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ef4444;
+  color: #fff;
+  border: 2px solid var(--bg-card);
+  font-size: 11px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s;
+  cursor: pointer;
+  z-index: 3;
+  padding: 0;
+}
+
+.wf-editor-node:hover .wf-node-delete { opacity: 1; }
+
+.wf-port {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+
+.wf-port-in { left: -4px; }
+.wf-port-out { right: -4px; }
+.wf-editor-node:hover .wf-port { opacity: 1; }
+
+.wf-palette-toggle {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.wf-palette-toggle:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.wf-palette {
+  position: absolute;
+  top: 44px;
+  left: 12px;
+  width: 160px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 8px;
+  z-index: 20;
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wf-palette.open { display: flex; }
+
+.wf-palette-title {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  padding: 4px 8px;
+  font-weight: 500;
+}
+
+.wf-palette-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: grab;
+  transition: background 0.15s;
+  touch-action: none;
+}
+
+.wf-palette-item:hover { background: var(--bg-surface); }
+
+.wf-hint {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: var(--text-tertiary);
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .wf-canvas { height: 320px; }
+  .wf-editor-node { font-size: 11px; padding: 8px 12px; }
+  .wf-hint { font-size: 10px; }
 }
 

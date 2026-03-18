@@ -66,41 +66,34 @@
           <div class="preview-dot"></div>
           <span class="preview-bar-title">SEO Description Fixer — ShopFlow</span>
         </div>
-        <div class="preview-body">
-          <div class="wf-node">
-            <div class="node-icon" style="background:rgba(139,92,246,0.12);color:#8b5cf6;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        <div class="preview-body" style="padding:0;position:relative;overflow:hidden;">
+          <svg class="wf-canvas-svg"></svg>
+          <div class="wf-canvas"></div>
+          <button class="wf-palette-toggle">+ Add Node</button>
+          <div class="wf-palette">
+            <div class="wf-palette-title">Drag to add</div>
+            <div class="wf-palette-item" data-type="trigger" draggable="false">
+              <span class="node-icon" style="background:rgba(139,92,246,0.12);color:#8b5cf6;width:24px;height:24px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="6 3 20 12 6 21 6 3"/></svg></span>
+              Trigger
             </div>
-            Manual Start
-          </div>
-          <div class="wf-connector"></div>
-          <div class="wf-node">
-            <div class="node-icon" style="background:rgba(34,197,94,0.12);color:#22c55e;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/></svg>
+            <div class="wf-palette-item" data-type="shopify" draggable="false">
+              <span class="node-icon" style="background:rgba(34,197,94,0.12);color:#22c55e;width:24px;height:24px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/></svg></span>
+              Shopify
             </div>
-            Get Products
-          </div>
-          <div class="wf-connector"></div>
-          <div class="wf-node">
-            <div class="node-icon" style="background:rgba(59,130,246,0.12);color:#3b82f6;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+            <div class="wf-palette-item" data-type="filter" draggable="false">
+              <span class="node-icon" style="background:rgba(59,130,246,0.12);color:#3b82f6;width:24px;height:24px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></span>
+              Filter
             </div>
-            Filter Empty
-          </div>
-          <div class="wf-connector"></div>
-          <div class="wf-node">
-            <div class="node-icon" style="background:rgba(139,92,246,0.12);color:#8b5cf6;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 01-1.287 1.288L3 12l5.8 1.9a2 2 0 011.288 1.288L12 21l1.9-5.8a2 2 0 011.287-1.288L21 12l-5.8-1.9a2 2 0 01-1.288-1.288Z"/></svg>
+            <div class="wf-palette-item" data-type="ai" draggable="false">
+              <span class="node-icon" style="background:rgba(139,92,246,0.12);color:#8b5cf6;width:24px;height:24px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m12 3-1.9 5.8a2 2 0 01-1.287 1.288L3 12l5.8 1.9a2 2 0 011.288 1.288L12 21"/></svg></span>
+              AI
             </div>
-            AI Rewrite
-          </div>
-          <div class="wf-connector"></div>
-          <div class="wf-node">
-            <div class="node-icon" style="background:rgba(34,197,94,0.12);color:#22c55e;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+            <div class="wf-palette-item" data-type="output" draggable="false">
+              <span class="node-icon" style="background:rgba(249,115,22,0.12);color:#f97316;width:24px;height:24px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg></span>
+              Output
             </div>
-            Update Product
           </div>
+          <div class="wf-hint">Drag nodes to rearrange &bull; Click + to add &bull; Hover &times; to delete</div>
         </div>
       </div>
     </div>
@@ -530,6 +523,211 @@ if (toggle && navLinks) {
     toggle.setAttribute('aria-expanded', navLinks.classList.contains('open'));
   });
 }
+
+// --- Interactive Workflow Editor ---
+(function initEditor() {
+  const canvas = document.querySelector('.wf-canvas');
+  const svg = document.querySelector('.wf-canvas-svg');
+  const paletteToggle = document.querySelector('.wf-palette-toggle');
+  const palette = document.querySelector('.wf-palette');
+  if (!canvas || !svg) return;
+
+  const NODE_TYPES = {
+    trigger: { label: 'Trigger', bg: 'rgba(139,92,246,0.12)', fg: '#8b5cf6', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="6 3 20 12 6 21 6 3"/></svg>' },
+    shopify: { label: 'Shopify', bg: 'rgba(34,197,94,0.12)', fg: '#22c55e', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/></svg>' },
+    filter: { label: 'Filter', bg: 'rgba(59,130,246,0.12)', fg: '#3b82f6', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>' },
+    ai: { label: 'AI', bg: 'rgba(139,92,246,0.12)', fg: '#8b5cf6', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m12 3-1.9 5.8a2 2 0 01-1.287 1.288L3 12l5.8 1.9a2 2 0 011.288 1.288L12 21l1.9-5.8a2 2 0 011.287-1.288L21 12l-5.8-1.9a2 2 0 01-1.288-1.288Z"/></svg>' },
+    output: { label: 'Output', bg: 'rgba(249,115,22,0.12)', fg: '#f97316', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>' }
+  };
+
+  let nextId = 6;
+  const nodes = [
+    { id: 'n1', type: 'trigger', label: 'Manual Start', x: 40, y: 60 },
+    { id: 'n2', type: 'shopify', label: 'Get Products', x: 220, y: 60 },
+    { id: 'n3', type: 'filter', label: 'Filter Empty', x: 400, y: 60 },
+    { id: 'n4', type: 'ai', label: 'AI Rewrite', x: 560, y: 60 },
+    { id: 'n5', type: 'shopify', label: 'Update Product', x: 400, y: 200 }
+  ];
+  const connections = [
+    { from: 'n1', to: 'n2' },
+    { from: 'n2', to: 'n3' },
+    { from: 'n3', to: 'n4' },
+    { from: 'n4', to: 'n5' }
+  ];
+
+  // Scale initial positions based on actual canvas width
+  function scalePositions() {
+    const cw = canvas.offsetWidth;
+    if (cw < 600) {
+      // Stack in zigzag for mobile
+      nodes[0].x = 20; nodes[0].y = 30;
+      nodes[1].x = 160; nodes[1].y = 30;
+      nodes[2].x = 20; nodes[2].y = 110;
+      nodes[3].x = 160; nodes[3].y = 110;
+      nodes[4].x = 90; nodes[4].y = 200;
+    } else {
+      const s = cw / 960;
+      nodes.forEach(n => { n.x = Math.round(n.x * s); n.y = Math.round(n.y * s); });
+    }
+  }
+
+  function render() {
+    canvas.innerHTML = '';
+    nodes.forEach(n => {
+      const t = NODE_TYPES[n.type] || NODE_TYPES.trigger;
+      const el = document.createElement('div');
+      el.className = 'wf-editor-node';
+      el.dataset.id = n.id;
+      el.style.left = n.x + 'px';
+      el.style.top = n.y + 'px';
+      el.innerHTML = `
+        <button class="wf-node-delete">&times;</button>
+        <div class="wf-port wf-port-in"></div>
+        <div class="node-icon" style="background:${t.bg};color:${t.fg};width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">${t.icon}</div>
+        <span>${n.label}</span>
+        <div class="wf-port wf-port-out"></div>
+      `;
+      // Drag
+      el.addEventListener('pointerdown', e => startDrag(e, n, el));
+      // Delete button
+      el.querySelector('.wf-node-delete').addEventListener('click', e => {
+        e.stopPropagation();
+        removeNode(n.id);
+      });
+      // Right-click delete
+      el.addEventListener('contextmenu', e => {
+        e.preventDefault();
+        removeNode(n.id);
+      });
+      canvas.appendChild(el);
+    });
+    drawConnections();
+  }
+
+  function drawConnections() {
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    connections.forEach(c => {
+      const fromEl = canvas.querySelector(`[data-id="${c.from}"]`);
+      const toEl = canvas.querySelector(`[data-id="${c.to}"]`);
+      if (!fromEl || !toEl) return;
+      const x1 = fromEl.offsetLeft + fromEl.offsetWidth;
+      const y1 = fromEl.offsetTop + fromEl.offsetHeight / 2;
+      const x2 = toEl.offsetLeft;
+      const y2 = toEl.offsetTop + toEl.offsetHeight / 2;
+      const dx = Math.abs(x2 - x1) * 0.45;
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', `M${x1},${y1} C${x1 + dx},${y1} ${x2 - dx},${y2} ${x2},${y2}`);
+      path.setAttribute('stroke', 'rgba(139,92,246,0.35)');
+      path.setAttribute('stroke-width', '2');
+      path.setAttribute('fill', 'none');
+      svg.appendChild(path);
+      // Dot at end
+      const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      dot.setAttribute('cx', x2);
+      dot.setAttribute('cy', y2);
+      dot.setAttribute('r', '3');
+      dot.setAttribute('fill', '#8b5cf6');
+      dot.setAttribute('opacity', '0.6');
+      svg.appendChild(dot);
+    });
+  }
+
+  function startDrag(e, node, el) {
+    if (e.target.closest('.wf-node-delete')) return;
+    e.preventDefault();
+    el.setPointerCapture(e.pointerId);
+    el.classList.add('dragging');
+    const rect = canvas.getBoundingClientRect();
+    const ox = e.clientX - rect.left - node.x;
+    const oy = e.clientY - rect.top - node.y;
+
+    function onMove(e2) {
+      const nx = Math.max(0, Math.min(canvas.offsetWidth - el.offsetWidth, e2.clientX - rect.left - ox));
+      const ny = Math.max(0, Math.min(canvas.offsetHeight - el.offsetHeight, e2.clientY - rect.top - oy));
+      node.x = nx;
+      node.y = ny;
+      el.style.left = nx + 'px';
+      el.style.top = ny + 'px';
+      drawConnections();
+    }
+
+    function onUp() {
+      el.classList.remove('dragging');
+      el.removeEventListener('pointermove', onMove);
+      el.removeEventListener('pointerup', onUp);
+    }
+
+    el.addEventListener('pointermove', onMove);
+    el.addEventListener('pointerup', onUp);
+  }
+
+  function removeNode(id) {
+    const idx = nodes.findIndex(n => n.id === id);
+    if (idx === -1) return;
+    nodes.splice(idx, 1);
+    // Remove connections involving this node
+    for (let i = connections.length - 1; i >= 0; i--) {
+      if (connections[i].from === id || connections[i].to === id) connections.splice(i, 1);
+    }
+    render();
+  }
+
+  function addNode(type) {
+    const t = NODE_TYPES[type] || NODE_TYPES.trigger;
+    // Find rightmost node
+    let maxX = 0;
+    let rightmostId = null;
+    nodes.forEach(n => {
+      if (n.x > maxX) { maxX = n.x; rightmostId = n.id; }
+    });
+    const newX = Math.min(maxX + 170, canvas.offsetWidth - 140);
+    const newY = 60 + Math.random() * (canvas.offsetHeight - 140);
+    const id = 'n' + nextId++;
+    nodes.push({ id, type, label: t.label, x: newX, y: newY });
+    // Auto-connect from rightmost unconnected output
+    if (rightmostId) {
+      const hasOutgoing = connections.some(c => c.from === rightmostId);
+      if (!hasOutgoing) {
+        connections.push({ from: rightmostId, to: id });
+      }
+    }
+    render();
+    // Animate entrance
+    const el = canvas.querySelector(`[data-id="${id}"]`);
+    if (el && typeof gsap !== 'undefined') {
+      gsap.from(el, { scale: 0.85, opacity: 0, duration: 0.3, ease: 'power2.out' });
+    }
+  }
+
+  // Palette toggle
+  if (paletteToggle && palette) {
+    paletteToggle.addEventListener('click', () => palette.classList.toggle('open'));
+    // Palette items — click to add
+    palette.querySelectorAll('.wf-palette-item').forEach(item => {
+      item.addEventListener('click', () => {
+        addNode(item.dataset.type);
+        palette.classList.remove('open');
+      });
+    });
+  }
+
+  // Init
+  scalePositions();
+  render();
+
+  // Animate initial nodes on first load
+  if (typeof gsap !== 'undefined') {
+    const nodeEls = canvas.querySelectorAll('.wf-editor-node');
+    gsap.from(nodeEls, { y: 15, opacity: 0, duration: 0.4, stagger: 0.08, ease: 'power2.out', delay: 0.2 });
+    // Animate connections with dash
+    svg.querySelectorAll('path').forEach(p => {
+      const len = p.getTotalLength();
+      p.style.strokeDasharray = len;
+      p.style.strokeDashoffset = len;
+      gsap.to(p, { strokeDashoffset: 0, duration: 0.8, ease: 'power2.out', delay: 0.5 });
+    });
+  }
+})();
 </script>
 </body>
 </html>
