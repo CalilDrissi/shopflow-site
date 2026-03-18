@@ -1398,11 +1398,17 @@ h3 { font-size: 1.25rem; }
 }
 
 .pn-icon {
-  font-size: 13px;
-  width: 18px;
-  text-align: center;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  line-height: 1;
+}
+
+.pn-icon svg {
+  width: 14px;
+  height: 14px;
 }
 
 @media (max-width: 900px) {
