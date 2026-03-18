@@ -7,7 +7,7 @@
   <meta name="description" content="Build powerful Shopify automations with drag-and-drop workflows. SEO, inventory, pricing, fulfillment — no code required." />
   <link rel="canonical" href="https://shopifyer.link/" />
   <meta name="robots" content="index, follow" />
-  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="stylesheet" href="styles.css?v=10" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238b5cf6' stroke-width='2.5'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg>" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -97,45 +97,45 @@
                   <span class="palette-cat-dot" style="background:#ff6b6b;"></span>
                   Triggers
                 </div>
-                <div class="palette-node"><span class="pn-icon">&#9654;</span> Manual Trigger</div>
-                <div class="palette-node"><span class="pn-icon">&#128339;</span> Schedule</div>
-                <div class="palette-node"><span class="pn-icon">&#128279;</span> Webhook</div>
+                <div class="palette-node" data-node-type="trigger_manual"><span class="pn-icon">&#9654;</span> Manual Trigger</div>
+                <div class="palette-node" data-node-type="trigger_schedule"><span class="pn-icon">&#128339;</span> Schedule</div>
+                <div class="palette-node" data-node-type="trigger_webhook"><span class="pn-icon">&#128279;</span> Webhook</div>
               </div>
               <div class="palette-category">
                 <div class="palette-cat-header">
                   <span class="palette-cat-dot" style="background:#96bf48;"></span>
                   Shopify
                 </div>
-                <div class="palette-node"><span class="pn-icon">&#128230;</span> Get Products</div>
-                <div class="palette-node"><span class="pn-icon">&#9999;</span> Update Product</div>
-                <div class="palette-node"><span class="pn-icon">&#128179;</span> Orders</div>
-                <div class="palette-node"><span class="pn-icon">&#128100;</span> Customers</div>
+                <div class="palette-node" data-node-type="shopify_get_products"><span class="pn-icon">&#128230;</span> Get Products</div>
+                <div class="palette-node" data-node-type="shopify_update_product"><span class="pn-icon">&#9999;</span> Update Product</div>
+                <div class="palette-node" data-node-type="logic_limit"><span class="pn-icon">&#128179;</span> Orders</div>
+                <div class="palette-node" data-node-type="output_notification"><span class="pn-icon">&#128100;</span> Customers</div>
               </div>
               <div class="palette-category">
                 <div class="palette-cat-header">
                   <span class="palette-cat-dot" style="background:#a855f7;"></span>
                   AI
                 </div>
-                <div class="palette-node"><span class="pn-icon">&#10024;</span> Generate Text</div>
-                <div class="palette-node"><span class="pn-icon">&#127760;</span> Translate</div>
+                <div class="palette-node" data-node-type="ai_generate_text"><span class="pn-icon">&#10024;</span> Generate Text</div>
+                <div class="palette-node" data-node-type="ai_rewrite"><span class="pn-icon">&#127760;</span> Translate</div>
               </div>
               <div class="palette-category">
                 <div class="palette-cat-header">
                   <span class="palette-cat-dot" style="background:#3b82f6;"></span>
                   Logic
                 </div>
-                <div class="palette-node"><span class="pn-icon">&#128268;</span> Filter</div>
-                <div class="palette-node"><span class="pn-icon">&#128256;</span> Branch</div>
-                <div class="palette-node"><span class="pn-icon">&#128257;</span> Loop</div>
+                <div class="palette-node" data-node-type="logic_filter"><span class="pn-icon">&#128268;</span> Filter</div>
+                <div class="palette-node" data-node-type="logic_if"><span class="pn-icon">&#128256;</span> Branch</div>
+                <div class="palette-node" data-node-type="logic_limit"><span class="pn-icon">&#128257;</span> Loop</div>
               </div>
               <div class="palette-category">
                 <div class="palette-cat-header">
                   <span class="palette-cat-dot" style="background:#10b981;"></span>
                   Output
                 </div>
-                <div class="palette-node"><span class="pn-icon">&#128228;</span> Webhook Call</div>
-                <div class="palette-node"><span class="pn-icon">&#128231;</span> Send Email</div>
-                <div class="palette-node"><span class="pn-icon">&#128196;</span> CSV Export</div>
+                <div class="palette-node" data-node-type="output_webhook"><span class="pn-icon">&#128228;</span> Webhook Call</div>
+                <div class="palette-node" data-node-type="output_notification"><span class="pn-icon">&#128231;</span> Send Email</div>
+                <div class="palette-node" data-node-type="output_log"><span class="pn-icon">&#128196;</span> CSV Export</div>
               </div>
             </div>
             <canvas id="editor-canvas" style="flex:1;width:100%;display:block;min-height:0;"></canvas>

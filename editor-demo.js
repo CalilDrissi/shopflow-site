@@ -111,13 +111,13 @@
   }
 
   // --- Constants ---
-  var NODE_W = 220;
-  var NODE_H = 52;
+  var NODE_W = 180;
+  var NODE_H = 44;
   var PORT_R = 5;
   var PORT_R_HOVER = 7;
   var GRID_SIZE = 20;
-  var ACCENT_W = 4;
-  var CORNER_R = 8;
+  var ACCENT_W = 3;
+  var CORNER_R = 7;
 
   // --- Canvas Colors (dark theme for marketing site) ---
   var canvasColors = {
@@ -502,24 +502,24 @@
     ctx.restore();
 
     // Icon circle
-    var iconCX = x + ACCENT_W + 14 + 16;
+    var iconCX = x + ACCENT_W + 12 + 13;
     var iconCY = y + h / 2;
     ctx.fillStyle = hexToRgba(color, 0.15);
     ctx.beginPath();
-    ctx.arc(iconCX, iconCY, 16, 0, Math.PI * 2);
+    ctx.arc(iconCX, iconCY, 13, 0, Math.PI * 2);
     ctx.fill();
 
     // Icon image
-    var iconImg = getIconImage(reg.icon, color, 18);
+    var iconImg = getIconImage(reg.icon, color, 15);
     if (iconImg && iconImg.complete && iconImg.naturalWidth > 0) {
-      ctx.drawImage(iconImg, iconCX - 9, iconCY - 9, 18, 18);
+      ctx.drawImage(iconImg, iconCX - 7.5, iconCY - 7.5, 15, 15);
     }
 
     // Label
-    var textX = iconCX + 24;
-    var maxTextW = w - (textX - x) - 14;
+    var textX = iconCX + 20;
+    var maxTextW = w - (textX - x) - 10;
     ctx.fillStyle = canvasColors.text;
-    ctx.font = '500 13px "Inter Tight", -apple-system, BlinkMacSystemFont, sans-serif';
+    ctx.font = '500 12px "Inter Tight", -apple-system, BlinkMacSystemFont, sans-serif';
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'left';
     ctx.fillText(node.label || reg.label, textX, iconCY, maxTextW);
@@ -882,9 +882,9 @@
   }
 
   function onWheel(e) {
-    e.preventDefault();
-
     if (e.ctrlKey || e.metaKey) {
+      // Zoom — intercept scroll
+      e.preventDefault();
       var sx = e.clientX;
       var sy = e.clientY;
       var zoomFactor = e.deltaY > 0 ? 0.92 : 1.08;
@@ -897,17 +897,9 @@
       targetCamera.x = mx - (mx - targetCamera.x) * (newZoom / targetCamera.zoom);
       targetCamera.y = my - (my - targetCamera.y) * (newZoom / targetCamera.zoom);
       targetCamera.zoom = newZoom;
-    } else {
-      var ddx = e.deltaX;
-      var ddy = e.deltaY;
-      if (e.shiftKey && ddx === 0) {
-        ddx = ddy;
-        ddy = 0;
-      }
-      targetCamera.x -= ddx;
-      targetCamera.y -= ddy;
+      dirty = true;
     }
-    dirty = true;
+    // Otherwise let the event propagate — page scrolls normally
   }
 
   function onDblClick(e) {
@@ -978,11 +970,11 @@
     id: 'demo',
     name: 'SEO Description Fixer',
     nodes: [
-      { id: 'n1', node_type: 'trigger_manual', label: 'Manual Start', position_x: 80, position_y: 160, config: {} },
-      { id: 'n2', node_type: 'shopify_get_products', label: 'Get Products', position_x: 380, position_y: 160, config: {} },
-      { id: 'n3', node_type: 'logic_filter', label: 'Filter Empty', position_x: 680, position_y: 160, config: {} },
-      { id: 'n4', node_type: 'ai_generate_text', label: 'AI Rewrite', position_x: 680, position_y: 300, config: {} },
-      { id: 'n5', node_type: 'shopify_update_product', label: 'Update Product', position_x: 380, position_y: 300, config: {} },
+      { id: 'n1', node_type: 'trigger_manual', label: 'Manual Start', position_x: 60, position_y: 140, config: {} },
+      { id: 'n2', node_type: 'shopify_get_products', label: 'Get Products', position_x: 300, position_y: 140, config: {} },
+      { id: 'n3', node_type: 'logic_filter', label: 'Filter Empty', position_x: 540, position_y: 140, config: {} },
+      { id: 'n4', node_type: 'ai_generate_text', label: 'AI Rewrite', position_x: 540, position_y: 260, config: {} },
+      { id: 'n5', node_type: 'shopify_update_product', label: 'Update Product', position_x: 300, position_y: 260, config: {} },
     ],
     connections: [
       { id: 'c1', from_node: 'n1', from_port: 'output', to_node: 'n2', to_port: 'input' },
@@ -1017,6 +1009,32 @@
 
     // Handle resize
     window.addEventListener('resize', function() { dirty = true; fitToView(); });
+
+    // Wire sidebar palette click handlers
+    var paletteNodes = document.querySelectorAll('.palette-node[data-node-type]');
+    for (var pi = 0; pi < paletteNodes.length; pi++) {
+      (function(el) {
+        el.addEventListener('click', function() {
+          var nodeType = el.getAttribute('data-node-type');
+          if (!NODE_REGISTRY[nodeType] || !workflow) return;
+
+          // Place new node at center of current viewport
+          var rect = canvas.getBoundingClientRect();
+          var cx = (rect.width / 2 - camera.x) / camera.zoom;
+          var cy = (rect.height / 2 - camera.y) / camera.zoom;
+          var snappedX = Math.round(cx / GRID_SIZE) * GRID_SIZE;
+          var snappedY = Math.round(cy / GRID_SIZE) * GRID_SIZE;
+
+          var newNode = createNodeInstance(nodeType, snappedX, snappedY);
+          if (newNode) {
+            workflow.nodes.push(newNode);
+            selectedNodes.clear();
+            selectedNodes.add(newNode.id);
+            dirty = true;
+          }
+        });
+      })(paletteNodes[pi]);
+    }
 
     // Initial fit to view (with a short delay to let CSS settle)
     camera.x = targetCamera.x;

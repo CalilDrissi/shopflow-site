@@ -1388,7 +1388,7 @@ h3 { font-size: 1.25rem; }
   font-size: 12px;
   font-weight: 500;
   color: var(--text-secondary);
-  cursor: default;
+  cursor: pointer;
   transition: background 0.1s, color 0.1s;
 }
 
