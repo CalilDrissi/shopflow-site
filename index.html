@@ -7,7 +7,7 @@
   <meta name="description" content="Build powerful Shopify automations with drag-and-drop workflows. SEO, inventory, pricing, fulfillment — no code required." />
   <link rel="canonical" href="https://shopifyer.link/" />
   <meta name="robots" content="index, follow" />
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238b5cf6' stroke-width='2.5'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg>" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -59,6 +59,7 @@
 
     <!-- Preview -->
     <div class="hero-preview reveal">
+      <div class="preview-glow"></div>
       <div class="preview-window">
         <div class="preview-bar">
           <div class="preview-dot"></div>
@@ -530,7 +531,20 @@ if (toggle && navLinks) {
   const svg = document.querySelector('.wf-canvas-svg');
   const paletteToggle = document.querySelector('.wf-palette-toggle');
   const palette = document.querySelector('.wf-palette');
+  const heroPreview = document.querySelector('.hero-preview');
   if (!canvas || !svg) return;
+
+  // Expand + glow on interaction
+  let interactionTimeout;
+  function activateEditor() {
+    if (heroPreview && !heroPreview.classList.contains('editor-active')) {
+      heroPreview.classList.add('editor-active');
+    }
+    clearTimeout(interactionTimeout);
+    interactionTimeout = setTimeout(() => {
+      if (heroPreview) heroPreview.classList.remove('editor-active');
+    }, 4000);
+  }
 
   const NODE_TYPES = {
     trigger: { label: 'Trigger', bg: 'rgba(139,92,246,0.12)', fg: '#8b5cf6', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="6 3 20 12 6 21 6 3"/></svg>' },
@@ -635,6 +649,7 @@ if (toggle && navLinks) {
   function startDrag(e, node, el) {
     if (e.target.closest('.wf-node-delete')) return;
     e.preventDefault();
+    activateEditor();
     el.setPointerCapture(e.pointerId);
     el.classList.add('dragging');
     const rect = canvas.getBoundingClientRect();
@@ -662,6 +677,7 @@ if (toggle && navLinks) {
   }
 
   function removeNode(id) {
+    activateEditor();
     const idx = nodes.findIndex(n => n.id === id);
     if (idx === -1) return;
     nodes.splice(idx, 1);
@@ -673,6 +689,7 @@ if (toggle && navLinks) {
   }
 
   function addNode(type) {
+    activateEditor();
     const t = NODE_TYPES[type] || NODE_TYPES.trigger;
     // Find rightmost node
     let maxX = 0;
