@@ -229,6 +229,49 @@ h3 { font-size: 1.25rem; }
   overflow: visible;
 }
 
+/* Gradient sphere */
+.hero-sphere {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 40%, rgba(139, 92, 246, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 65% 55%, rgba(99, 102, 241, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 60%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+  animation: sphere-drift 12s ease-in-out infinite;
+}
+
+.hero-sphere::after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 60%);
+  filter: blur(40px);
+  animation: sphere-pulse 8s ease-in-out infinite 2s;
+}
+
+@keyframes sphere-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-30px, 20px) scale(1.03); }
+  50% { transform: translate(15px, -15px) scale(0.97); }
+  75% { transform: translate(-10px, -25px) scale(1.02); }
+}
+
+@keyframes sphere-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
 .hero-text {
   text-align: left;
   margin-bottom: 48px;
