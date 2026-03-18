@@ -7,7 +7,7 @@
   <meta name="description" content="Build powerful Shopify automations with drag-and-drop workflows. SEO, inventory, pricing, fulfillment — no code required." />
   <link rel="canonical" href="https://shopifyer.link/" />
   <meta name="robots" content="index, follow" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238b5cf6' stroke-width='2.5'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg>" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -89,7 +89,46 @@
               Output
             </div>
           </div>
-          <div class="wf-hint">Drag nodes to rearrange &bull; Click + to add &bull; Hover &times; to delete</div>
+          <div class="wf-hint">Drag nodes to rearrange &bull; Click to configure &bull; Hover &times; to delete</div>
+          <!-- Node config panel -->
+          <div class="wf-panel" id="wf-panel">
+            <div class="wf-panel-header">
+              <div class="wf-panel-title">
+                <div class="node-icon" id="wf-panel-icon" style="width:24px;height:24px;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"></div>
+                <span id="wf-panel-name">Node</span>
+              </div>
+              <button class="wf-panel-close" id="wf-panel-close">&times;</button>
+            </div>
+            <div class="wf-panel-body">
+              <div class="wf-panel-field">
+                <span class="wf-panel-label">Status</span>
+                <div class="wf-panel-badge"><span class="wf-panel-badge-dot" style="background:#22c55e;"></span> Ready</div>
+              </div>
+              <div class="wf-panel-field">
+                <span class="wf-panel-label">Label</span>
+                <input class="wf-panel-input" id="wf-panel-label-input" type="text" value="" spellcheck="false" />
+              </div>
+              <div class="wf-panel-field">
+                <span class="wf-panel-label">Type</span>
+                <select class="wf-panel-select" id="wf-panel-type-select" disabled>
+                  <option value="trigger">Trigger</option>
+                  <option value="shopify">Shopify</option>
+                  <option value="filter">Filter</option>
+                  <option value="ai">AI</option>
+                  <option value="output">Output</option>
+                </select>
+              </div>
+              <div class="wf-panel-divider"></div>
+              <div class="wf-panel-field">
+                <span class="wf-panel-label">Node ID</span>
+                <div style="font-size:12px;color:var(--text-tertiary);font-family:monospace;" id="wf-panel-id">—</div>
+              </div>
+              <div class="wf-panel-field">
+                <span class="wf-panel-label">Connections</span>
+                <div style="font-size:12px;color:var(--text-tertiary);" id="wf-panel-conns">—</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -539,6 +578,59 @@ if (toggle && navLinks) {
     }, 4000);
   }
 
+  // --- Node config panel ---
+  const panel = document.getElementById('wf-panel');
+  const panelClose = document.getElementById('wf-panel-close');
+  const panelIcon = document.getElementById('wf-panel-icon');
+  const panelName = document.getElementById('wf-panel-name');
+  const panelLabelInput = document.getElementById('wf-panel-label-input');
+  const panelTypeSelect = document.getElementById('wf-panel-type-select');
+  const panelId = document.getElementById('wf-panel-id');
+  const panelConns = document.getElementById('wf-panel-conns');
+  let selectedNodeId = null;
+
+  function openPanel(nodeId) {
+    const node = nodes.find(n => n.id === nodeId);
+    if (!node) return;
+    selectedNodeId = nodeId;
+    const t = NODE_TYPES[node.type] || NODE_TYPES.trigger;
+    panelIcon.style.background = t.bg;
+    panelIcon.style.color = t.fg;
+    panelIcon.innerHTML = t.icon;
+    panelName.textContent = node.label;
+    panelLabelInput.value = node.label;
+    panelTypeSelect.value = node.type;
+    panelId.textContent = node.id;
+    const incoming = connections.filter(c => c.to === nodeId).map(c => c.from);
+    const outgoing = connections.filter(c => c.from === nodeId).map(c => c.to);
+    panelConns.textContent = (incoming.length ? 'In: ' + incoming.join(', ') : 'No inputs') + ' | ' + (outgoing.length ? 'Out: ' + outgoing.join(', ') : 'No outputs');
+    // Highlight selected
+    canvas.querySelectorAll('.wf-editor-node').forEach(el => el.classList.remove('selected'));
+    const el = canvas.querySelector(`[data-id="${nodeId}"]`);
+    if (el) el.classList.add('selected');
+    panel.classList.add('open');
+    activateEditor();
+  }
+
+  function closePanel() {
+    panel.classList.remove('open');
+    selectedNodeId = null;
+    canvas.querySelectorAll('.wf-editor-node').forEach(el => el.classList.remove('selected'));
+  }
+
+  if (panelClose) panelClose.addEventListener('click', closePanel);
+  if (panelLabelInput) {
+    panelLabelInput.addEventListener('input', () => {
+      if (!selectedNodeId) return;
+      const node = nodes.find(n => n.id === selectedNodeId);
+      if (!node) return;
+      node.label = panelLabelInput.value || NODE_TYPES[node.type].label;
+      const el = canvas.querySelector(`[data-id="${selectedNodeId}"] span`);
+      if (el) el.textContent = node.label;
+      panelName.textContent = node.label;
+    });
+  }
+
   const NODE_TYPES = {
     trigger: { label: 'Trigger', bg: 'rgba(139,92,246,0.12)', fg: '#8b5cf6', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="6 3 20 12 6 21 6 3"/></svg>' },
     shopify: { label: 'Shopify', bg: 'rgba(34,197,94,0.12)', fg: '#22c55e', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/></svg>' },
@@ -594,17 +686,27 @@ if (toggle && navLinks) {
         <span>${n.label}</span>
         <div class="wf-port wf-port-out"></div>
       `;
-      // Drag
-      el.addEventListener('pointerdown', e => startDrag(e, n, el));
+      // Drag + click to open panel
+      let didDrag = false;
+      el.addEventListener('pointerdown', e => {
+        didDrag = false;
+        startDrag(e, n, el, () => { didDrag = true; });
+      });
+      el.addEventListener('click', e => {
+        if (e.target.closest('.wf-node-delete')) return;
+        if (!didDrag) openPanel(n.id);
+      });
       // Delete button
       el.querySelector('.wf-node-delete').addEventListener('click', e => {
         e.stopPropagation();
         removeNode(n.id);
+        if (selectedNodeId === n.id) closePanel();
       });
       // Right-click delete
       el.addEventListener('contextmenu', e => {
         e.preventDefault();
         removeNode(n.id);
+        if (selectedNodeId === n.id) closePanel();
       });
       canvas.appendChild(el);
     });
@@ -639,7 +741,7 @@ if (toggle && navLinks) {
     });
   }
 
-  function startDrag(e, node, el) {
+  function startDrag(e, node, el, onDragCb) {
     if (e.target.closest('.wf-node-delete')) return;
     e.preventDefault();
     activateEditor();
@@ -650,6 +752,7 @@ if (toggle && navLinks) {
     const oy = e.clientY - rect.top - node.y;
 
     function onMove(e2) {
+      if (onDragCb) { onDragCb(); onDragCb = null; }
       const nx = Math.max(0, Math.min(canvas.offsetWidth - el.offsetWidth, e2.clientX - rect.left - ox));
       const ny = Math.max(0, Math.min(canvas.offsetHeight - el.offsetHeight, e2.clientY - rect.top - oy));
       node.x = nx;
@@ -720,6 +823,11 @@ if (toggle && navLinks) {
       });
     });
   }
+
+  // Close panel on canvas click
+  canvas.addEventListener('click', e => {
+    if (!e.target.closest('.wf-editor-node')) closePanel();
+  });
 
   // Init
   scalePositions();
