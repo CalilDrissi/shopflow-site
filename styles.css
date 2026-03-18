@@ -886,120 +886,100 @@ h3 { font-size: 1.25rem; font-weight: 700; }
   line-height: 1.8 !important;
 }
 
-.mission-compare {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--border);
+/* Mission Table */
+.mission-table {
+  border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   overflow: hidden;
   margin-bottom: 64px;
 }
 
-.mission-card {
-  background: var(--bg);
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+.mission-table-header {
+  display: grid;
+  grid-template-columns: 160px 1fr 1fr;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
 }
 
-.mission-card-before {
-  background: var(--bg);
-}
-
-.mission-card-after {
-  background: var(--bg-raised);
-}
-
-.mission-card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.mission-card-tag {
-  font-size: 11px;
+.mission-table-col-label {
+  padding: 16px 24px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--text-tertiary);
-  padding: 5px 12px;
-  background: rgba(255,255,255,0.05);
-  border-radius: var(--radius-full);
 }
 
-.mission-card-tag-accent {
+.mission-col-before {
+  border-left: 1px solid var(--border);
+}
+
+.mission-col-after {
+  border-left: 1px solid var(--border);
   color: var(--accent-light);
   background: var(--accent-dim);
 }
 
-.mission-card-subtitle {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-tertiary);
+.mission-table-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 1fr;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
 }
 
-.mission-card-items {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  flex: 1;
+.mission-table-row:last-child {
+  border-bottom: none;
 }
 
-.mission-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.mission-table-row:hover {
+  background: var(--bg-raised);
+}
+
+.mission-table-label {
+  padding: 18px 24px;
   font-size: 14px;
-  font-weight: 500;
-}
-
-.mission-item span:first-of-type {
-  flex: 1;
-}
-
-.mission-item-bad {
-  color: var(--text-tertiary);
-}
-
-.mission-item-bad svg {
-  color: rgba(248,113,113,0.5);
-  flex-shrink: 0;
-}
-
-.mission-price {
-  font-size: 13px;
   font-weight: 600;
-  color: var(--text-tertiary);
-  font-variant-numeric: tabular-nums;
-  text-align: right;
-  min-width: 56px;
-}
-
-.mission-item-good {
   color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.mission-item-good svg {
-  color: #34d399;
+.mission-table-label svg {
   flex-shrink: 0;
 }
 
-.mission-card-total {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
+.mission-table-cell {
+  padding: 18px 24px;
   font-size: 13px;
   font-weight: 500;
+  line-height: 1.5;
+  border-left: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.mission-cell-bad {
   color: var(--text-tertiary);
+}
+
+.mission-cell-good {
+  color: var(--text-secondary);
+  background: rgba(168,85,247,0.03);
+}
+
+.mission-table-row-total {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+}
+
+.mission-table-row-total:hover {
+  background: var(--bg-card);
 }
 
 .mission-total-bad {
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 700;
   font-family: var(--font-display);
   color: #f87171;
   text-decoration: line-through;
@@ -1008,8 +988,8 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 }
 
 .mission-total-good {
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 700;
   font-family: var(--font-display);
   color: #34d399;
 }
@@ -1026,8 +1006,29 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 }
 
 @media (max-width: 768px) {
-  .mission-compare {
+  .mission-table-header,
+  .mission-table-row {
     grid-template-columns: 1fr;
+  }
+  .mission-table-col-label:first-child {
+    display: none;
+  }
+  .mission-table-col-label {
+    border-left: none;
+  }
+  .mission-table-cell {
+    border-left: none;
+    padding: 12px 24px;
+  }
+  .mission-cell-bad::before {
+    content: 'Before: ';
+    color: var(--text-tertiary);
+    font-weight: 600;
+  }
+  .mission-cell-good::before {
+    content: 'After: ';
+    color: var(--accent-light);
+    font-weight: 600;
   }
 }
 
