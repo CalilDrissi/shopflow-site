@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopFlow — Visual Shopify Automation Platform</title>
+  <meta name="description" content="Build powerful Shopify automations with drag-and-drop workflows. SEO, inventory, pricing, fulfillment — no code required." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff6b2b' stroke-width='2.5'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg>" />
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      ShopFlow
+    </a>
+    <ul class="nav-links">
+      <li><a href="features.html">Features</a></li>
+      <li><a href="templates.html">Templates</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="https://app.shopifyer.link" class="nav-login">Log in</a>
+      <a href="https://app.shopifyer.link" class="nav-cta">Start Free</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-content">
+    <span class="section-label">Shopify Automation Platform</span>
+    <h1>Automate your Shopify store<br><span class="text-gradient">without writing code</span></h1>
+    <p>Build powerful workflows visually — SEO optimization, inventory sync, customer segmentation, AI content, dropshipping fulfillment. Replace $200/mo in Shopify apps with one platform.</p>
+    <div class="hero-buttons">
+      <a href="https://app.shopifyer.link" class="btn btn-primary btn-lg">
+        Start Free
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="features.html" class="btn btn-secondary btn-lg">See How It Works</a>
+    </div>
+  </div>
+
+  <!-- Workflow Preview -->
+  <div class="container-wide hero-preview reveal">
+    <div class="preview-window">
+      <div class="preview-titlebar">
+        <div class="preview-dot"></div>
+        <div class="preview-dot"></div>
+        <div class="preview-dot"></div>
+        <span>SEO Description Fixer — ShopFlow Editor</span>
+      </div>
+      <div class="preview-body">
+        <div class="wf-node node-trigger">
+          <div class="node-icon" style="background:rgba(255,107,43,0.2);color:#ff6b2b;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+          </div>
+          Manual Start
+        </div>
+        <div class="wf-connector" style="animation-delay:0.15s"></div>
+        <div class="wf-node node-shopify">
+          <div class="node-icon" style="background:rgba(150,191,72,0.2);color:#96bf48;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/></svg>
+          </div>
+          Get Products
+        </div>
+        <div class="wf-connector" style="animation-delay:0.25s"></div>
+        <div class="wf-node node-logic">
+          <div class="node-icon" style="background:rgba(59,130,246,0.2);color:#3b82f6;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          </div>
+          Filter Empty
+        </div>
+        <div class="wf-connector" style="animation-delay:0.35s"></div>
+        <div class="wf-node node-ai">
+          <div class="node-icon" style="background:rgba(139,92,246,0.2);color:#8b5cf6;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 01-1.287 1.288L3 12l5.8 1.9a2 2 0 011.288 1.288L12 21l1.9-5.8a2 2 0 011.287-1.288L21 12l-5.8-1.9a2 2 0 01-1.288-1.288Z"/></svg>
+          </div>
+          AI Rewrite
+        </div>
+        <div class="wf-connector" style="animation-delay:0.45s"></div>
+        <div class="wf-node node-shopify">
+          <div class="node-icon" style="background:rgba(150,191,72,0.2);color:#96bf48;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+          </div>
+          Update Product
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="container stats-bar reveal">
+    <div class="stat">
+      <div class="stat-value" data-count="46" data-suffix="+">0+</div>
+      <div class="stat-label">Node types</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" data-count="35" data-suffix="">0</div>
+      <div class="stat-label">Ready-made templates</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" data-count="10" data-suffix="">0</div>
+      <div class="stat-label">Supplier integrations</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" data-prefix="$" data-count="0" data-suffix="">$0</div>
+      <div class="stat-label">Free to start</div>
+    </div>
+  </div>
+</section>
+
+<!-- Integrations -->
+<section class="integrations container reveal">
+  <span class="section-label">Integrations</span>
+  <h2>Plug into your entire<br><span class="text-gradient">Shopify ecosystem</span></h2>
+  <p>Connect to supplier platforms, AI providers, webhooks, email, CSV exports, and the full Shopify Admin API.</p>
+  <div class="integration-grid">
+    <div class="integration-icon" title="Shopify">🛍️</div>
+    <div class="integration-icon" title="AliExpress">🇨🇳</div>
+    <div class="integration-icon" title="CJ Dropshipping">📦</div>
+    <div class="integration-icon" title="Printful">👕</div>
+    <div class="integration-icon" title="OpenAI / Claude">🤖</div>
+    <div class="integration-icon" title="Webhooks">🔗</div>
+    <div class="integration-icon" title="Email">📧</div>
+    <div class="integration-icon" title="CSV Export">📊</div>
+    <div class="integration-icon" title="DSers">🛒</div>
+    <div class="integration-icon" title="Spocket">🇺🇸</div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features-section container">
+  <!-- Feature 1 -->
+  <div class="feature-row reveal">
+    <div class="feature-text">
+      <span class="section-label">Visual Builder</span>
+      <h2>Build complex automations<br><span class="text-gradient">without getting boxed in</span></h2>
+      <p>Drag, drop, and connect 46 node types to create any workflow you can imagine. From simple stock alerts to multi-step AI-powered product enrichment.</p>
+      <ul class="feature-list">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          46 node types — triggers, Shopify API, AI, logic, data, output
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Visual canvas editor with real-time preview
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Run instantly or schedule hourly, daily, weekly
+        </li>
+      </ul>
+    </div>
+    <div class="feature-visual">
+      <div style="display:flex;flex-direction:column;gap:12px;width:100%;">
+        <div class="wf-node node-trigger" style="animation:none;"><div class="node-icon" style="background:rgba(255,107,43,0.2);color:#ff6b2b;">⚡</div> Webhook Trigger</div>
+        <div class="wf-node node-shopify" style="animation:none;"><div class="node-icon" style="background:rgba(150,191,72,0.2);color:#96bf48;">🛍️</div> Get Products</div>
+        <div class="wf-node node-ai" style="animation:none;"><div class="node-icon" style="background:rgba(139,92,246,0.2);color:#8b5cf6;">✨</div> AI Generate</div>
+        <div class="wf-node node-logic" style="animation:none;"><div class="node-icon" style="background:rgba(59,130,246,0.2);color:#3b82f6;">🔀</div> Filter Results</div>
+        <div class="wf-node node-output" style="animation:none;"><div class="node-icon" style="background:rgba(6,182,212,0.2);color:#06b6d4;">📧</div> Send Email</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 2 -->
+  <div class="feature-row reverse reveal">
+    <div class="feature-text">
+      <span class="section-label">AI-Powered</span>
+      <h2>AI that works predictably<br><span class="text-gradient">in production</span></h2>
+      <p>Connect any AI provider — OpenAI, Anthropic, local models. Generate SEO descriptions, translate products, create alt text, optimize tags. All running on autopilot.</p>
+      <ul class="feature-list">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Bring your own API key — any provider
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Template-based prompts with product variables
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Translate to any language automatically
+        </li>
+      </ul>
+    </div>
+    <div class="feature-visual">
+      <div style="text-align:center;">
+        <div style="font-size:64px;margin-bottom:24px;">✨</div>
+        <div style="font-family:var(--font-display);font-size:18px;font-weight:600;margin-bottom:12px;">AI Content Engine</div>
+        <div style="color:var(--text-secondary);font-size:14px;line-height:1.8;">
+          SEO Descriptions &bull; Meta Tags &bull; Alt Text<br>
+          Product Tags &bull; Translations &bull; Bullet Points<br>
+          Spec Tables &bull; Custom Prompts
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 3 -->
+  <div class="feature-row reveal">
+    <div class="feature-text">
+      <span class="section-label">Dropshipping</span>
+      <h2>Every major supplier<br><span class="text-gradient">connected out of the box</span></h2>
+      <p>Pre-built templates for AliExpress, CJ Dropshipping, Spocket, Printful, DSers, and more. Import products, sync inventory, auto-forward orders. Zero manual copy-paste.</p>
+      <ul class="feature-list">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          10 supplier integrations with ready templates
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Auto price markup with margin protection
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Inventory sync every 2-4 hours
+        </li>
+      </ul>
+    </div>
+    <div class="feature-visual">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;">
+        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">🇨🇳</div> AliExpress</div>
+        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">📦</div> CJ Dropshipping</div>
+        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">🇺🇸</div> Spocket</div>
+        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">👕</div> Printful</div>
+        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">🛒</div> DSers</div>
+        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">🎨</div> Printify</div>
+        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">⚡</div> Zendrop</div>
+        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">🌐</div> Modalyst</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Studies -->
+<section class="testimonials container">
+  <div class="text-center reveal">
+    <span class="section-label">From the community</span>
+    <h2>Trusted by Shopify<br><span class="text-gradient">store owners</span></h2>
+  </div>
+  <div class="testimonial-grid">
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="testimonial-quote">
+        "Replaced <strong>4 Shopify apps that cost us $87/mo</strong>. The SEO description fixer alone paid for itself — our organic traffic is up 40% since we started using ShopFlow."
+      </div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">MR</div>
+        <div>
+          <div class="testimonial-name">Marcus R.</div>
+          <div class="testimonial-role">Fashion Store Owner, 2,400 SKUs</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-quote">
+        "The dropshipping templates are incredible. We set up <strong>supplier inventory sync in under 5 minutes</strong>. No more overselling, no more angry customers."
+      </div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">SK</div>
+        <div>
+          <div class="testimonial-name">Sarah K.</div>
+          <div class="testimonial-role">Dropship Store, AliExpress + Spocket</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-3">
+      <div class="testimonial-quote">
+        "The AI tag optimizer found <strong>product keywords we never thought of</strong>. Our search-driven sales jumped 25% in the first month."
+      </div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">JL</div>
+        <div>
+          <div class="testimonial-name">James L.</div>
+          <div class="testimonial-role">Home Goods Store, 800 Products</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-4">
+      <div class="testimonial-quote">
+        "We run 12 automated workflows daily — <strong>low stock alerts, VIP tagging, dead product cleanup</strong>. What used to take 3 hours of manual work now just happens."
+      </div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">AP</div>
+        <div>
+          <div class="testimonial-name">Aisha P.</div>
+          <div class="testimonial-role">Multi-Store Operator, 5 Shopify Stores</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Enterprise Grid -->
+<section class="container" style="padding:100px 0;">
+  <div class="text-center reveal">
+    <span class="section-label">Enterprise Ready</span>
+    <h2>Reliable. Scalable. <span class="text-gradient">Secure.</span></h2>
+  </div>
+  <div class="enterprise-grid reveal">
+    <div class="enterprise-cell">
+      <h4>Multi-Store Support</h4>
+      <p>Connect and manage automations across multiple Shopify stores from one dashboard.</p>
+    </div>
+    <div class="enterprise-cell">
+      <h4>Scheduled Workflows</h4>
+      <p>Run workflows hourly, daily, or weekly with built-in cron scheduling.</p>
+    </div>
+    <div class="enterprise-cell">
+      <h4>Webhook Triggers</h4>
+      <p>React to events in real-time — new orders, inventory changes, external feeds.</p>
+    </div>
+    <div class="enterprise-cell">
+      <h4>Run Logs &amp; History</h4>
+      <p>Full execution logs with node-by-node results, timing, and error details.</p>
+    </div>
+    <div class="enterprise-cell">
+      <h4>Bring Your Own AI</h4>
+      <p>Use any AI provider — OpenAI, Anthropic, local models. Your keys, your data.</p>
+    </div>
+    <div class="enterprise-cell">
+      <h4>Import &amp; Export</h4>
+      <p>Export workflows as JSON. Import and share automations across stores.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Simple enough to see.<br><span class="text-gradient">Powerful enough to ship.</span></h2>
+    <p>Join Shopify store owners who automate instead of doing it manually.</p>
+    <div class="hero-buttons">
+      <a href="https://app.shopifyer.link" class="btn btn-primary btn-lg">
+        Start Free
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6b2b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          ShopFlow
+        </a>
+        <p>Visual automation platform for Shopify stores. Build workflows, not busywork.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <a href="features.html">Features</a>
+        <a href="templates.html">Templates</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="footer-col">
+        <h5>Templates</h5>
+        <a href="templates.html">SEO & Content</a>
+        <a href="templates.html">Inventory</a>
+        <a href="templates.html">Customers</a>
+        <a href="templates.html">Dropshipping</a>
+      </div>
+      <div class="footer-col">
+        <h5>Integrations</h5>
+        <a href="#">AliExpress</a>
+        <a href="#">Printful</a>
+        <a href="#">CJ Dropshipping</a>
+        <a href="#">Spocket</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="#">Documentation</a>
+        <a href="#">Changelog</a>
+        <a href="#">Status</a>
+        <a href="#">Support</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 ShopFlow. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
