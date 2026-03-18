@@ -8,7 +8,10 @@
   <link rel="canonical" href="https://shopifyer.link/" />
   <meta name="robots" content="index, follow" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff6b2b' stroke-width='2.5'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ee4f27' stroke-width='2.5'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg>" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <noscript><style>.reveal{opacity:1!important;transform:none!important;visibility:visible!important}</style></noscript>
 </head>
 <body>
 
@@ -37,6 +40,7 @@
 
 <!-- Hero -->
 <section class="hero">
+  <div class="hero-mesh"></div>
   <div class="container hero-content">
     <span class="section-label">Shopify Automation Platform</span>
     <h1>Automate your Shopify store<br><span class="text-gradient">without writing code</span></h1>
@@ -61,33 +65,33 @@
       </div>
       <div class="preview-body">
         <div class="wf-node node-trigger">
-          <div class="node-icon" style="background:rgba(255,107,43,0.2);color:#ff6b2b;">
+          <div class="node-icon" style="background:rgba(238,79,39,0.2);color:#ee4f27;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="6 3 20 12 6 21 6 3"/></svg>
           </div>
           Manual Start
         </div>
-        <div class="wf-connector" style="animation-delay:0.15s"></div>
+        <div class="wf-connector"></div>
         <div class="wf-node node-shopify">
           <div class="node-icon" style="background:rgba(150,191,72,0.2);color:#96bf48;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/></svg>
           </div>
           Get Products
         </div>
-        <div class="wf-connector" style="animation-delay:0.25s"></div>
+        <div class="wf-connector"></div>
         <div class="wf-node node-logic">
           <div class="node-icon" style="background:rgba(59,130,246,0.2);color:#3b82f6;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
           </div>
           Filter Empty
         </div>
-        <div class="wf-connector" style="animation-delay:0.35s"></div>
+        <div class="wf-connector"></div>
         <div class="wf-node node-ai">
-          <div class="node-icon" style="background:rgba(139,92,246,0.2);color:#8b5cf6;">
+          <div class="node-icon" style="background:rgba(107,33,239,0.2);color:#6b21ef;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 01-1.287 1.288L3 12l5.8 1.9a2 2 0 011.288 1.288L12 21l1.9-5.8a2 2 0 011.287-1.288L21 12l-5.8-1.9a2 2 0 01-1.288-1.288Z"/></svg>
           </div>
           AI Rewrite
         </div>
-        <div class="wf-connector" style="animation-delay:0.45s"></div>
+        <div class="wf-connector"></div>
         <div class="wf-node node-shopify">
           <div class="node-icon" style="background:rgba(150,191,72,0.2);color:#96bf48;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
@@ -124,17 +128,15 @@
   <span class="section-label">Integrations</span>
   <h2>Plug into your entire<br><span class="text-gradient">Shopify ecosystem</span></h2>
   <p>Connect to supplier platforms, AI providers, webhooks, email, CSV exports, and the full Shopify Admin API.</p>
-  <div class="integration-grid">
-    <div class="integration-icon" title="Shopify">🛍️</div>
-    <div class="integration-icon" title="AliExpress">🇨🇳</div>
-    <div class="integration-icon" title="CJ Dropshipping">📦</div>
-    <div class="integration-icon" title="Printful">👕</div>
-    <div class="integration-icon" title="OpenAI / Claude">🤖</div>
-    <div class="integration-icon" title="Webhooks">🔗</div>
-    <div class="integration-icon" title="Email">📧</div>
-    <div class="integration-icon" title="CSV Export">📊</div>
-    <div class="integration-icon" title="DSers">🛒</div>
-    <div class="integration-icon" title="Spocket">🇺🇸</div>
+  <div class="integration-logos">
+    <span class="integration-logo">Shopify</span>
+    <span class="integration-logo">AliExpress</span>
+    <span class="integration-logo">CJ Dropshipping</span>
+    <span class="integration-logo">Printful</span>
+    <span class="integration-logo">OpenAI</span>
+    <span class="integration-logo">Spocket</span>
+    <span class="integration-logo">DSers</span>
+    <span class="integration-logo">Printify</span>
   </div>
 </section>
 
@@ -163,11 +165,11 @@
     </div>
     <div class="feature-visual">
       <div style="display:flex;flex-direction:column;gap:12px;width:100%;">
-        <div class="wf-node node-trigger" style="animation:none;"><div class="node-icon" style="background:rgba(255,107,43,0.2);color:#ff6b2b;">⚡</div> Webhook Trigger</div>
-        <div class="wf-node node-shopify" style="animation:none;"><div class="node-icon" style="background:rgba(150,191,72,0.2);color:#96bf48;">🛍️</div> Get Products</div>
-        <div class="wf-node node-ai" style="animation:none;"><div class="node-icon" style="background:rgba(139,92,246,0.2);color:#8b5cf6;">✨</div> AI Generate</div>
-        <div class="wf-node node-logic" style="animation:none;"><div class="node-icon" style="background:rgba(59,130,246,0.2);color:#3b82f6;">🔀</div> Filter Results</div>
-        <div class="wf-node node-output" style="animation:none;"><div class="node-icon" style="background:rgba(6,182,212,0.2);color:#06b6d4;">📧</div> Send Email</div>
+        <div class="wf-node node-trigger" style="animation:none;"><div class="node-icon" style="background:rgba(238,79,39,0.2);color:#ee4f27;">&#9889;</div> Webhook Trigger</div>
+        <div class="wf-node node-shopify" style="animation:none;"><div class="node-icon" style="background:rgba(150,191,72,0.2);color:#96bf48;">&#128722;</div> Get Products</div>
+        <div class="wf-node node-ai" style="animation:none;"><div class="node-icon" style="background:rgba(107,33,239,0.2);color:#6b21ef;">&#10024;</div> AI Generate</div>
+        <div class="wf-node node-logic" style="animation:none;"><div class="node-icon" style="background:rgba(59,130,246,0.2);color:#3b82f6;">&#128256;</div> Filter Results</div>
+        <div class="wf-node node-output" style="animation:none;"><div class="node-icon" style="background:rgba(6,182,212,0.2);color:#06b6d4;">&#128231;</div> Send Email</div>
       </div>
     </div>
   </div>
@@ -195,7 +197,7 @@
     </div>
     <div class="feature-visual">
       <div style="text-align:center;">
-        <div style="font-size:64px;margin-bottom:24px;">✨</div>
+        <div style="font-size:64px;margin-bottom:24px;">&#10024;</div>
         <div style="font-family:var(--font-display);font-size:18px;font-weight:600;margin-bottom:12px;">AI Content Engine</div>
         <div style="color:var(--text-secondary);font-size:14px;line-height:1.8;">
           SEO Descriptions &bull; Meta Tags &bull; Alt Text<br>
@@ -229,14 +231,14 @@
     </div>
     <div class="feature-visual">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;">
-        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">🇨🇳</div> AliExpress</div>
-        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">📦</div> CJ Dropshipping</div>
-        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">🇺🇸</div> Spocket</div>
-        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">👕</div> Printful</div>
-        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">🛒</div> DSers</div>
-        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">🎨</div> Printify</div>
-        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">⚡</div> Zendrop</div>
-        <div class="wf-node" style="animation:none;font-size:12px;"><div class="node-icon" style="font-size:20px;">🌐</div> Modalyst</div>
+        <div class="wf-node" style="font-size:12px;"><div class="node-icon" style="font-size:20px;">&#127464;&#127475;</div> AliExpress</div>
+        <div class="wf-node" style="font-size:12px;"><div class="node-icon" style="font-size:20px;">&#128230;</div> CJ Dropshipping</div>
+        <div class="wf-node" style="font-size:12px;"><div class="node-icon" style="font-size:20px;">&#127482;&#127480;</div> Spocket</div>
+        <div class="wf-node" style="font-size:12px;"><div class="node-icon" style="font-size:20px;">&#128085;</div> Printful</div>
+        <div class="wf-node" style="font-size:12px;"><div class="node-icon" style="font-size:20px;">&#128722;</div> DSers</div>
+        <div class="wf-node" style="font-size:12px;"><div class="node-icon" style="font-size:20px;">&#127912;</div> Printify</div>
+        <div class="wf-node" style="font-size:12px;"><div class="node-icon" style="font-size:20px;">&#9889;</div> Zendrop</div>
+        <div class="wf-node" style="font-size:12px;"><div class="node-icon" style="font-size:20px;">&#127760;</div> Modalyst</div>
       </div>
     </div>
   </div>
@@ -249,7 +251,7 @@
     <h2>Trusted by Shopify<br><span class="text-gradient">store owners</span></h2>
   </div>
   <div class="testimonial-grid">
-    <div class="testimonial-card reveal reveal-delay-1">
+    <div class="testimonial-card">
       <div class="testimonial-quote">
         "Replaced <strong>4 Shopify apps that cost us $87/mo</strong>. The SEO description fixer alone paid for itself — our organic traffic is up 40% since we started using ShopFlow."
       </div>
@@ -261,7 +263,7 @@
         </div>
       </div>
     </div>
-    <div class="testimonial-card reveal reveal-delay-2">
+    <div class="testimonial-card">
       <div class="testimonial-quote">
         "The dropshipping templates are incredible. We set up <strong>supplier inventory sync in under 5 minutes</strong>. No more overselling, no more angry customers."
       </div>
@@ -273,7 +275,7 @@
         </div>
       </div>
     </div>
-    <div class="testimonial-card reveal reveal-delay-3">
+    <div class="testimonial-card">
       <div class="testimonial-quote">
         "The AI tag optimizer found <strong>product keywords we never thought of</strong>. Our search-driven sales jumped 25% in the first month."
       </div>
@@ -285,7 +287,7 @@
         </div>
       </div>
     </div>
-    <div class="testimonial-card reveal reveal-delay-4">
+    <div class="testimonial-card">
       <div class="testimonial-quote">
         "We run 12 automated workflows daily — <strong>low stock alerts, VIP tagging, dead product cleanup</strong>. What used to take 3 hours of manual work now just happens."
       </div>
@@ -336,6 +338,7 @@
 
 <!-- CTA -->
 <section class="cta-section">
+  <div class="cta-glow"></div>
   <div class="container">
     <h2>Simple enough to see.<br><span class="text-gradient">Powerful enough to ship.</span></h2>
     <p>Join Shopify store owners who automate instead of doing it manually.</p>
@@ -354,10 +357,15 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="nav-logo">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6b2b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ee4f27" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           ShopFlow
         </a>
         <p>Visual automation platform for Shopify stores. Build workflows, not busywork.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 004 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+          <a href="#" aria-label="Discord"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 9a5 5 0 00-5-5H8a5 5 0 00-5 5v6a5 5 0 005 5h1l3 3 3-3h1a5 5 0 005-5V9z"/></svg></a>
+        </div>
       </div>
       <div class="footer-col">
         <h5>Product</h5>
