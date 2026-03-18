@@ -300,13 +300,16 @@ h3 { font-size: 1.25rem; font-weight: 700; }
   overflow: hidden;
   height: 1.2em;
   width: 100%;
+  padding: 0 4px;
+  margin: 0 -4px;
 }
 
 .hero-flip-word {
   display: block;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 4px;
+  right: 4px;
   width: max-content;
   opacity: 0;
   transform: translateY(100%);
@@ -314,6 +317,7 @@ h3 { font-size: 1.25rem; font-weight: 700; }
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  padding: 0 2px;
 }
 
 /* First word visible before JS loads */
